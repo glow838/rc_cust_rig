@@ -120,6 +120,135 @@ footer {
   color: #4da3ff;
 }
 
+/* Logo below welcome text */
+.main-logo {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.main-logo img {
+  width: 150px; /* adjust as needed */
+  height: auto;
+}
+
+/* Contain the fish gallery in the center */
+.fish-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px; /* smaller spacing */
+  padding: 20px;
+  max-width: 900px; /* container width */
+  margin: 0 auto; /* center horizontally */
+}
+
+/* Make images smaller and consistent */
+.fish-card img {
+  width: 100%;
+  max-width: 250px; /* smaller images */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fish-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.image-switcher-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap; /* responsive for mobile */
+}
+
+.image-display img {
+  width: 400px;        /* fixed width */
+  height: 300px;       /* fixed height */
+  object-fit: contain; /* fit entire image without cropping */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  background-color: #f0f0f0; /* optional: shows behind image if aspect ratio differs */
+}
+
+.image-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-buttons button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.image-buttons button:hover {
+  background-color: #555;
+}
+
+.info-section {
+  max-width: 800px;       /* keeps text from stretching too wide */
+  margin: 60px auto;      /* centers container and adds spacing */
+  padding: 20px;
+  text-align: center;     /* centers header and paragraph */
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .image-switcher-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-buttons button {
+    margin: 5px;
+  }
+}
+
+
+/* Responsive for smaller screens */
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .fish-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .fish-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* MOBILE: FULLSCREEN SIDEBAR */
 @media (max-width: 768px) {
   nav {
@@ -135,5 +264,33 @@ footer {
   nav ul li a {
     font-size: 1.5rem;
     padding: 2rem;
+  }
+}
+
+/* Optional: smaller screens */
+@media (max-width: 768px) {
+  .image-display img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-display img {
+    max-width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 15px;
+  }
+  
+  .info-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-section p {
+    font-size: 1rem;
   }
 }
