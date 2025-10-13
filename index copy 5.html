@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RC's Custom Rigs</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <header>
+    <div class="menu-toggle" id="menu-toggle">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div>
+    <div class="header-center">
+      <img src="images/RCLOGO.jpeg" alt="Logo" class="logo" />
+      <span class="header-text">RC's Custom Rigs</span>
+    </div>
+  </header>
+
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Peanut</a></li>
+      <li><a href="#">Spook</a></li>
+      <li><a href="#">Switch</a></li>
+      <li><a href="#">Jerk</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Welcome to My Website</h2>
+    <p>This is the homepage content that stays centered even when the menu opens.</p>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61561736444236"><ion-icon name="logo-facebook"></ion-icon></a>
+      <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+      <a href="https://www.instagram.com/rcscustomrigs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><ion-icon name="logo-instagram"></ion-icon></a>
+      <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+    </div>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      const icon = menuToggle.querySelector('ion-icon');
+      icon.setAttribute('name', sidebar.classList.contains('active') ? 'close-outline' : 'menu-outline');
+    });
+  </script>
+</body>
+</html>
