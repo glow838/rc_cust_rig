@@ -46,7 +46,6 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover; /* fills the entire area */
-  opacity: 0.08; /* adjust transparency: 0.05 (fainter) to 0.2 (more visible) */
   z-index: 0;
 }
 
@@ -81,6 +80,11 @@ header {
 .header-text {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+h2,
+p {
+  color: white; /* Changes the text color of the <h1> within the header */
 }
 
 /* SIDEBAR */
@@ -141,6 +145,17 @@ footer {
   margin-bottom: 0.5rem;
 }
 
+.overlay-box {
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  color: #fff; /* white text */
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  text-align: center;
+  margin: 40px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 .social-icons a {
   color: #fff;
   margin: 0 10px;
@@ -150,17 +165,6 @@ footer {
 
 .social-icons a:hover {
   color: #4da3ff;
-}
-
-/* Logo below welcome text */
-.main-logo {
-  margin: 30px 0;
-  text-align: center;
-}
-
-.main-logo img {
-  width: 150px; /* adjust as needed */
-  height: auto;
 }
 
 /* Contain the fish gallery in the center */
@@ -180,15 +184,15 @@ footer {
   max-width: 250px;
   height: 200px;
   border-radius: 10px;
-  object-fit: contain;       /* show full image, no cropping */
+  object-fit: contain; /* show full image, no cropping */
   background-color: #f0f0f0; /* fills behind images with different aspect ratios */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .fish-card img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .image-switcher-container {
@@ -201,11 +205,11 @@ footer {
 }
 
 .image-display img {
-  width: 400px;        /* fixed width */
-  height: 300px;       /* fixed height */
+  width: 400px; /* fixed width */
+  height: 300px; /* fixed height */
   object-fit: contain; /* fit entire image without cropping */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   background-color: #f0f0f0; /* optional: shows behind image if aspect ratio differs */
 }
@@ -231,10 +235,10 @@ footer {
 }
 
 .info-section {
-  max-width: 800px;       /* keeps text from stretching too wide */
-  margin: 60px auto;      /* centers container and adds spacing */
+  max-width: 800px; /* keeps text from stretching too wide */
+  margin: 60px auto; /* centers container and adds spacing */
   padding: 20px;
-  text-align: center;     /* centers header and paragraph */
+  text-align: center; /* centers header and paragraph */
 }
 
 .info-section h2 {
@@ -267,7 +271,6 @@ footer {
   }
 }
 
-
 /* Responsive for smaller screens */
 /* Responsive tweaks */
 @media (max-width: 900px) {
@@ -281,7 +284,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* MOBILE: FULLSCREEN SIDEBAR */
 @media (max-width: 768px) {
@@ -319,12 +321,20 @@ footer {
   .info-section {
     padding: 15px;
   }
-  
+
   .info-section h2 {
     font-size: 1.6rem;
   }
 
   .info-section p {
     font-size: 1rem;
+  }
+}
+
+/* Optional: make it responsive */
+@media (max-width: 768px) {
+  .overlay-box {
+    padding: 20px;
+    margin: 20px;
   }
 }
