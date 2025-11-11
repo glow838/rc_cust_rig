@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RC's Custom Rigs</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+      <div class="header-center">
+        <img src="images/RCLOGO.jpeg" alt="Logo" class="logo" />
+        <span class="header-text">RC's Custom Rigs</span>
+      </div>
+    </header>
+
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lure1.html">Peanut</a></li>
+        <li><a href="#">Spook</a></li>
+        <li><a href="#">Switch</a></li>
+        <li><a href="#">Jerk</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="shop-container">
+        <div class="product">
+          <img src="images/lure1.jpg" alt="Fishing Lure" />
+          <h3>Pro Fishing Lure</h3>
+          <p>$15.00</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product">
+          <img src="images/lure2.jpg" alt="Fishing Lure" />
+          <h3>Deep Water Spinner</h3>
+          <p>$22.00</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61561736444236"
+          ><ion-icon name="logo-facebook"></ion-icon
+        ></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a
+          href="https://www.instagram.com/rcscustomrigs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          ><ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+      </div>
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+      let cart = [];
+
+      document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const product = event.target.closest(".product");
+          const name = product.querySelector("h3").textContent;
+          const price = parseFloat(
+            product.querySelector("p").textContent.replace("$", "")
+          );
+
+          cart.push({ name, price });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert(`${name} added to cart!`);
+        });
+      });
+    </script>
+  </body>
+</html>

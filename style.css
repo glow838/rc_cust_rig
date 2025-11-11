@@ -34,7 +34,6 @@ header {
   overflow: hidden;
 }
 
-/* Faint logo background that fills the entire area */
 .homepage::before {
   content: "";
   position: absolute;
@@ -45,9 +44,11 @@ header {
   background-image: url("images/RCLOGO.jpeg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* fills the entire area */
+  background-size: 100% 100%; /* forces full width & height */
+
   z-index: 0;
 }
+
 
 /* Ensure content is above the background */
 .homepage * {
@@ -207,7 +208,7 @@ footer {
 .image-display img {
   width: 400px; /* fixed width */
   height: 300px; /* fixed height */
-  object-fit: contain; /* fit entire image without cropping */
+  object-fit: cover; /* fit entire image without cropping */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
