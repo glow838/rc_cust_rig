@@ -216,9 +216,10 @@ footer {
 }
 
 .image-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+  gap: 10px; /* space between buttons */
+  justify-content: center;
 }
 
 .image-buttons button {
