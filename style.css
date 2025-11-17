@@ -24,6 +24,11 @@ header {
   height: 100px; /* set exact height */
 }
 
+h1 {
+  font-size: 3rem; /* Default font size for larger screens */
+  text-align: center;
+}
+
 .homepage {
   position: relative;
   min-height: 100vh; /* fills the viewport */
@@ -48,7 +53,6 @@ header {
 
   z-index: 0;
 }
-
 
 /* Ensure content is above the background */
 .homepage * {
@@ -168,32 +172,24 @@ footer {
   color: #4da3ff;
 }
 
-/* Contain the fish gallery in the center */
-.fish-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 10px; /* smaller spacing */
-  padding: 20px;
-  max-width: 900px; /* container width */
-  margin: 0 auto; /* center horizontally */
-}
-
-/* Make images smaller and consistent */
-/* Make images smaller, consistent, and fully visible */
-.fish-card img {
+.sides-container {
+  display: flex;
+  justify-content: space-between; /* left & right side */
   width: 100%;
-  max-width: 250px;
-  height: 200px;
-  border-radius: 10px;
-  object-fit: contain; /* show full image, no cropping */
-  background-color: #f0f0f0; /* fills behind images with different aspect ratios */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
 }
 
-.fish-card img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* spacing between images */
+}
+
+.side-column img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover; /* same size */
+  border-radius: 10px;
 }
 
 .image-switcher-container {
@@ -273,17 +269,13 @@ footer {
   }
 }
 
-/* Responsive for smaller screens */
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .fish-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .fish-gallery {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .side-image {
+    position: static;
+    transform: none;
+    width: 80%;
+    margin: 20px auto;
+    display: block;
   }
 }
 
@@ -316,6 +308,10 @@ footer {
   .image-display img {
     max-width: 100%;
   }
+
+  h1 {
+    font-size: 2rem; /* Even smaller font size for small screens */
+  }
 }
 
 /* Responsive adjustments */
@@ -330,6 +326,10 @@ footer {
 
   .info-section p {
     font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Smaller font size for medium screens */
   }
 }
 

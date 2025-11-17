@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RC's Custom Rigs</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+      <div class="header-center">
+        <a href="index.html"
+          ><img src="images/RCLOGO.jpeg" alt="Logo" class="logo"
+        /></a>
+        <span class="header-text">RC's Custom Rigs</span>
+      </div>
+    </header>
+
+    <nav id="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pnut.html">Peanut Topwater</a></li>
+        <li><a href="spook.html">Spook Topwater</a></li>
+        <li><a href="twitch.html">Twitch Bait</a></li>
+        <li><a href="jerk.html">Jerk Bait</a></li>
+        <li><a href="wake.html">Wake Bait</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="image-switcher-container">
+        <!-- Image on the left -->
+        <div class="image-display">
+          <img id="main-image" src="images/RCLOGO.jpeg" alt="Fisherman Image" />
+        </div>
+
+        <!-- Buttons on the right -->
+        <div class="image-buttons">
+          <button class="scroll-top" data-image="images\pnut\blackmagic.jpeg">
+            Black Magic
+          </button>
+          <a href="https://buy.stripe.com/aFa14m0Ut2cnbLM7hKcbC02"
+            ><button style="background-color: red">Buy Black Magic</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\brassbullet.jpeg">
+            Brass Bullet
+          </button>
+          <a href="https://buy.stripe.com/bJefZg32BbMX4jk59CcbC03"
+            ><button style="background-color: red">Buy Brass Bullet</button></a
+          >
+          <button
+            class="scroll-top"
+            data-image="images\pnut\cookiesandcream.jpeg"
+          >
+            CookiesandCream
+          </button>
+          <a href="https://buy.stripe.com/bJe8wOdHf2cn5no8lOcbC04"
+            ><button style="background-color: red">
+              Buy CookiesandCream
+            </button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\ghostminnow.jpeg">
+            Ghost Minnow
+          </button>
+          <a href="https://buy.stripe.com/fZueVc0Ut5ozdTU59CcbC05"
+            ><button style="background-color: red">Buy Ghost Minnow</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\goldenboy.jpeg">
+            Golden Boy
+          </button>
+          <a href="https://buy.stripe.com/aFa8wOdHf6sDdTUdG8cbC06"
+            ><button style="background-color: red">Buy Golden Boy</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\holobone.jpeg">
+            Holo Bone
+          </button>
+          <a href="https://buy.stripe.com/cNi5kCeLj8AL6rsgSkcbC07"
+            ><button style="background-color: red">Buy Holo Bone</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\pearlpurp.jpeg">
+            Pearl Purp
+          </button>
+          <a href="https://buy.stripe.com/6oU4gyfPneZ9bLM1XqcbC08"
+            ><button style="background-color: red">Buy Pearl Purp</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\pinkpurp.jpeg">
+            Pink Purp
+          </button>
+          <a href="https://buy.stripe.com/dRmcN4av35oz8zAatWcbC09"
+            ><button style="background-color: red">Buy Pink Purp</button></a
+          >
+          <button class="scroll-top" data-image="images\pnut\warymullet.jpeg">
+            Wary Mullet
+          </button>
+          <a href="https://buy.stripe.com/4gMfZg9qZ7wH8zAcC4cbC0a"
+            ><button style="background-color: red">Buy Wary Mullet</button></a
+          >
+        </div>
+      </div>
+
+      <section class="info-section">
+        <h2>About Our Mission</h2>
+        <p>
+          We’re dedicated to bringing together passionate anglers from all over,
+          sharing their best catches and fishing experiences. Whether you’re a
+          weekend hobbyist or a seasoned pro, our community is built for you.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61561736444236"
+          ><ion-icon name="logo-facebook"></ion-icon
+        ></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a
+          href="https://www.instagram.com/rcscustomrigs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          ><ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+      </div>
+      <p>&copy; 2025 RC's Custom Rigs. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <script>
+      document.querySelectorAll(".scroll-top").forEach((button) => {
+        button.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
