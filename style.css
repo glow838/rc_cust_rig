@@ -232,6 +232,44 @@ footer {
   background-color: #555;
 }
 
+
+.img-btns-sizes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  justify-content: center;
+}
+
+/* allow auto height & wrapping */
+.img-btns-sizes button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;     /* good padding for multi-line text */
+  height: auto;           /* important: let height grow */
+  min-height: 50px;       /* optional base size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: normal;           /* allow wrapping */
+  overflow-wrap: anywhere;       /* break long words if needed */
+  word-break: break-word;        /* safe fallback */
+  text-align: center;
+
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.img-btns-sizes button:hover {
+  background-color: #555;
+}
+
 .info-section {
   max-width: 800px; /* keeps text from stretching too wide */
   margin: 60px auto; /* centers container and adds spacing */
@@ -350,4 +388,9 @@ footer {
     padding: 20px;
     margin: 20px;
   }
+}
+
+@media (max-width: 600px) {
+  .img-btns-sizes { grid-template-columns: repeat(2, 1fr); }
+  .img-btns-sizes button { font-size: 14px; }
 }
