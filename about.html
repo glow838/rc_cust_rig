@@ -40,34 +40,15 @@
       </ul>
     </nav>
 
-    <main class="homepage">
-      <div class="overlay-box">
-        <h2>Welcome to RC's Custom Rigs!</h2>
+    <main>
+      <section class="info-section">
+        <h2>About Our Mission</h2>
         <p>
-          Hand made Heavy duty popping corks/ Top waters / Twitch baits /
-          Jerk<br />
-          Baits / Gar Leaders! Made in Weslaco Tx. Message me for any custom<br />
-          orders! Shipping available, First Responder Discount / Whole-Sale<br />
-          available #TexasStrong
+          We’re dedicated to bringing together passionate anglers from all over,
+          sharing their best catches and fishing experiences. Whether you’re a
+          weekend hobbyist or a seasoned pro, our community is built for you.
         </p>
-      </div>
-
-      <!-- Container for fisherman & fish images -->
-<div class="sides-container">
-
-  <div class="side-column left-side">
-    <img src="images/fisherman/fisherman.jpg">
-    <img src="images/fisherman/fisherman2.jpeg">
-    <img src="images/fisherman/fisherman3.jpeg">
-  </div>
-
-  <div class="side-column right-side">
-    <img src="images/fisherman/fisherman4.jpeg">
-    <img src="images/fisherman/fisherman5.jpeg">
-    <img src="images/fisherman/fisherman7.jpeg">
-  </div>
-
-</div>
+      </section>
     </main>
 
     <footer>
@@ -86,5 +67,14 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <script>
+      document.querySelectorAll(".scroll-top").forEach((button) => {
+        button.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
   </body>
 </html>
