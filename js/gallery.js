@@ -1,5 +1,5 @@
 // gallery.js
-const buttons = document.querySelectorAll('.image-buttons button, .img-btns-sizes button');
+const buttons = document.querySelectorAll('.image-buttons button');
 const mainImage = document.getElementById('main-image');
 
 buttons.forEach(button => {
