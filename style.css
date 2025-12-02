@@ -260,6 +260,27 @@ footer {
   display: none;
 }
 
+.cart-icon {
+  position: absolute; /* stays inside the header */
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 12px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .image-switcher-container {

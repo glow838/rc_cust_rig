@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Payment Success</title>
+    <style>
+      body {
+        background: #071021;
+        color: #e6f2ff;
+        font-family: Inter, Arial;
+        padding: 40px;
+      }
+      .box {
+        max-width: 720px;
+        margin: auto;
+        background: #0f2333;
+        padding: 28px;
+        border-radius: 12px;
+        text-align: center;
+      }
+      h1 {
+        margin: 0 0 8px;
+      }
+      p {
+        color: #bcd6ef;
+      }
+      a {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 10px 16px;
+        background: #0a84ff;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Thank you — your payment succeeded!</h1>
+      <p>
+        We received your order. You'll get a receipt from Stripe via email
+        shortly.
+      </p>
+      <a href="/">Return to store</a>
+    </div>
+    <script>
+      // Clear cart after success
+      try {
+        localStorage.removeItem("cart");
+        document.querySelector(".box a").addEventListener("click", () => {});
+      } catch (e) {}
+    </script>
+  </body>
+</html>

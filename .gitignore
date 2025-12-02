@@ -1,0 +1,12 @@
+# Node modules / Composer vendor folder
+node_modules/
+vendor/
+
+# PHP secret keys / config
+checkout.php
+.env
+
+# IDE / system files
+*.log
+.vscode/
+.idea/

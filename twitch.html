@@ -26,6 +26,11 @@
         /></a>
         <span class="header-text">RC's Custom Rigs</span>
       </div>
+
+      <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
     </header>
 
     <nav id="sidebar">
@@ -37,6 +42,7 @@
         <li><a href="jerk.html">Jerk Bait</a></li>
         <li><a href="wake.html">Wake Bait</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
 
@@ -157,7 +163,7 @@
             </button></a
           >
 
-           <button class="scroll-top" data-image="images\twitch\pearlwh3.5.jpeg">
+          <button class="scroll-top" data-image="images\twitch\pearlwh3.5.jpeg">
             Pearl White Purp Twitch 3.5"
           </button>
           <a href="https://buy.stripe.com/aFa14m0Ut2cnbLM7hKcbC02"
@@ -166,7 +172,10 @@
             </button></a
           >
 
-          <button class="scroll-top" data-image="images\twitch\pinkpurp3.5.jpeg">
+          <button
+            class="scroll-top"
+            data-image="images\twitch\pinkpurp3.5.jpeg"
+          >
             Pink and Purp Twitch 3.5"
           </button>
           <a href="https://buy.stripe.com/aFa14m0Ut2cnbLM7hKcbC02"
@@ -174,9 +183,6 @@
               Buy Pink and Purp Twitch 3.5"
             </button></a
           >
-
-           
-
         </div>
       </div>
 
@@ -207,6 +213,7 @@
 
     <script src="js/script.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/addtocart.js"></script>
 
     <script>
       document.querySelectorAll(".scroll-top").forEach((button) => {

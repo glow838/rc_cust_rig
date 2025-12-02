@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Your Cart</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <style>
+      :root {
+        --bg: #0b0b0b;
+        --panel: #141414;
+        --muted: #9aa0a6;
+        --accent: #0a84ff;
+        --card: #1b1b1b;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: #fff;
+        font-family: Inter, Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .cart-icon {
+        position: relative;
+        font-size: 22px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -12px;
+        min-width: 22px;
+        height: 22px;
+        background: #ff3b30;
+        color: white;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 6px;
+        font-weight: 600;
+        font-size: 12px;
+        transform-origin: center;
+        animation: pop 0.35s ease;
+      }
+      @keyframes pop {
+        from {
+          transform: scale(0.6);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .container {
+        max-width: 980px;
+        margin: 18px auto;
+        padding: 16px;
+      }
+      .cart-panel {
+        background: var(--panel);
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      }
+      .cart-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .cart-item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px;
+        background: var(--card);
+        border-radius: 10px;
+      }
+      .item-left {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .item-thumb {
+        width: 64px;
+        height: 64px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #222, #1a1a1a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .item-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .name {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .price {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .qty-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .qty-controls button {
+        background: transparent;
+        border: 1px solid #2a2a2a;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .qty-controls span {
+        min-width: 28px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .summary {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+      }
+      .checkout-btn {
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+        border-radius: 10px;
+        border: 0;
+        background: linear-gradient(90deg, var(--accent), #0066ff);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Empty cart */
+      .empty {
+        padding: 40px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      /* Responsive product grid preview below */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 24px;
+      }
+      .product-card {
+        background: var(--card);
+        padding: 12px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .product-card .pname {
+        font-weight: 600;
+      }
+      .product-card .pbtn {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 0;
+        background: var(--accent);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      @media (max-width: 900px) {
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        header {
+          padding: 12px;
+        }
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+        .cart-item {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .item-left {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+      <div class="header-center">
+        <a href="index.html"
+          ><img src="images/RCLOGO.jpeg" alt="Logo" class="logo"
+        /></a>
+        <span class="header-text">RC's Custom Rigs</span>
+      </div>
+
+      <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
+      
+    </header>
+
+    
+
+    <div class="container">
+      <div class="cart-panel" id="cart-panel">
+        <div id="cart-list" class="cart-list"></div>
+
+        <div id="empty-state" class="empty" style="display: none">
+          Your cart is empty — go add something nice!
+        </div>
+
+        <div class="summary" id="summary" style="display: none">
+          <div class="total-row">
+            <span>Subtotal</span><span id="subtotal">$0.00</span>
+          </div>
+          <button id="checkout-btn" class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+
+      <!-- Example product grid (drop into your product pages or homepage) -->
+      <h2 style="margin-top: 22px; color: var(--muted); font-weight: 600">
+        Products (example)
+      </h2>
+      <div class="products-grid" id="products-grid">
+        <!-- JS will populate demo items; replace with your product markup as needed -->
+      </div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      /* ---------- Cart logic (localStorage) ---------- */
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        updateBadge();
+      }
+
+      function updateBadge() {
+        const count = cart.reduce((s, i) => s + i.quantity, 0);
+        const badge = document.getElementById("cart-badge");
+        badge.textContent = count;
+        // small pop animation when incremented
+        badge.style.animation = "none";
+        requestAnimationFrame(() => (badge.style.animation = "pop 0.35s ease"));
+      }
+
+      function renderCart() {
+        const list = document.getElementById("cart-list");
+        const empty = document.getElementById("empty-state");
+        const summary = document.getElementById("summary");
+        list.innerHTML = "";
+        if (!cart.length) {
+          empty.style.display = "block";
+          summary.style.display = "none";
+          return;
+        } else {
+          empty.style.display = "none";
+          summary.style.display = "flex";
+        }
+
+        cart.forEach((item, idx) => {
+          const el = document.createElement("div");
+          el.className = "cart-item";
+          el.innerHTML = `
+      <div class="item-left">
+        <div class="item-thumb">${item.name.substring(0, 1)}</div>
+        <div class="item-meta">
+          <div class="name">${item.name}</div>
+          <div class="price">$${(item.amount / 100).toFixed(2)} each</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="qty-controls">
+          <button onclick="changeQty(${idx},-1)" aria-label="Decrease">-</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQty(${idx},1)" aria-label="Increase">+</button>
+        </div>
+        <div class="line-price">$${(
+          (item.amount * item.quantity) /
+          100
+        ).toFixed(2)}</div>
+      </div>
+    `;
+          list.appendChild(el);
+        });
+
+        const subtotal = cart.reduce((s, i) => s + i.amount * i.quantity, 0);
+        document.getElementById("subtotal").textContent =
+          "$" + (subtotal / 100).toFixed(2);
+      }
+
+      /* change quantity */
+      function changeQty(index, delta) {
+        cart[index].quantity += delta;
+        if (cart[index].quantity <= 0) cart.splice(index, 1);
+        saveCart();
+      }
+
+      /* Add-to-cart handler (global, used by product pages) */
+      function addToCart({ name, price, amount, image }) {
+        const existing = cart.find((i) => i.price === price);
+        if (existing) existing.quantity++;
+        else
+          cart.push({
+            name,
+            price,
+            amount: parseInt(amount, 10),
+            quantity: 1,
+            image: image || "",
+          });
+        saveCart();
+        alert(name + " added to cart");
+      }
+
+      /* Checkout (post to PHP) */
+      document
+        .getElementById("checkout-btn")
+        .addEventListener("click", async () => {
+          if (!cart.length) return alert("Cart is empty");
+          try {
+            const res = await fetch("checkout.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(cart),
+            });
+            const data = await res.json();
+            if (data.id) {
+              const stripe = Stripe(
+                "pk_test_51RH7kGCmwUZwWxaTplbEKJuko5vuLxWjYfdguJJjduPS9b9XTPqZxzhD8nNquCvC04nn6rOreNPvA5wx4TCB3FBY00SeGLLXZd"
+              );
+              stripe.redirectToCheckout({ sessionId: data.id });
+            } else {
+              alert("Stripe session creation failed");
+              console.error(data);
+            }
+          } catch (err) {
+            console.error(err);
+            alert("Checkout error — see console");
+          }
+        });
+
+      /* init */
+      renderCart();
+      updateBadge();
+
+      /* ---------- Demo example product grid population ----------
+   Replace these with your real product markup on your site.
+   Each "Add to Cart" will call addToCart() with the Stripe Price ID.
+*/
+      const demoProducts = [
+        {
+          name: "Premium Haircut",
+          price: "price_1AAAAAA",
+          amount: 2500,
+          img: "",
+        },
+        { name: "Beard Trim", price: "price_1BBBBBB", amount: 1500, img: "" },
+        {
+          name: "Shampoo & Style",
+          price: "price_1CCCCCC",
+          amount: 1800,
+          img: "",
+        },
+        {
+          name: "Color Service",
+          price: "price_1DDDDDD",
+          amount: 5000,
+          img: "",
+        },
+        { name: "Hot Towel", price: "price_1EEEEE", amount: 700, img: "" },
+        { name: "Full Package", price: "price_1FFFFFF", amount: 8000, img: "" },
+      ];
+
+      const grid = document.getElementById("products-grid");
+      demoProducts.forEach((p) => {
+        const c = document.createElement("div");
+        c.className = "product-card";
+        c.innerHTML = `
+    <img src="https://via.placeholder.com/400x300?text=${encodeURIComponent(
+      p.name
+    )}" alt="${p.name}">
+    <div class="pname">${p.name}</div>
+    <div class="price" style="color:var(--muted)">$${(p.amount / 100).toFixed(
+      2
+    )}</div>
+    <button class="pbtn" onclick="addToCart({name:'${p.name}',price:'${
+          p.price
+        }',amount:${p.amount}})">Add to Cart</button>
+  `;
+        grid.appendChild(c);
+      });
+    </script>
+  </body>
+</html>

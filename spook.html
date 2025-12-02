@@ -26,6 +26,11 @@
         /></a>
         <span class="header-text">RC's Custom Rigs</span>
       </div>
+
+      <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
     </header>
 
     <nav id="sidebar">
@@ -37,6 +42,7 @@
         <li><a href="jerk.html">Jerk Bait</a></li>
         <li><a href="wake.html">Wake Bait</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
 
@@ -59,18 +65,15 @@
             Black and Chart
           </button>
           <a href="https://buy.stripe.com/bJefZg32BbMX4jk59CcbC03"
-            ><button style="background-color: red">Buy Black and Chart</button></a
+            ><button style="background-color: red">
+              Buy Black and Chart
+            </button></a
           >
-          <button
-            class="scroll-top"
-            data-image="images\spook\pearlpurp.jpg"
-          >
+          <button class="scroll-top" data-image="images\spook\pearlpurp.jpg">
             Pearl Purp
           </button>
           <a href="https://buy.stripe.com/bJe8wOdHf2cn5no8lOcbC04"
-            ><button style="background-color: red">
-              Buy Pearl Purp
-            </button></a
+            ><button style="background-color: red">Buy Pearl Purp</button></a
           >
           <button class="scroll-top" data-image="images\spook\ghostmin.jpg">
             Ghost Minnow
@@ -84,9 +87,6 @@
           <a href="https://buy.stripe.com/aFa8wOdHf6sDdTUdG8cbC06"
             ><button style="background-color: red">Buy Golden Boy</button></a
           >
-
-
-          
         </div>
       </div>
 
@@ -117,6 +117,7 @@
 
     <script src="js/script.js"></script>
     <script src="js/gallery.js"></script>
+     <script src="js/addtocart.js"></script>
 
     <script>
       document.querySelectorAll(".scroll-top").forEach((button) => {

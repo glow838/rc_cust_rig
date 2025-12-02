@@ -26,6 +26,11 @@
         /></a>
         <span class="header-text">RC's Custom Rigs</span>
       </div>
+
+      <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
     </header>
 
     <nav id="sidebar">
@@ -37,6 +42,7 @@
         <li><a href="jerk.html">Jerk Bait</a></li>
         <li><a href="wake.html">Wake Bait</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
       </ul>
     </nav>
 
@@ -49,26 +55,25 @@
 
         <!-- Buttons on the right -->
         <div class="image-buttons">
-
-          
           <button class="scroll-top" data-image="images\jerk\pinksolar.jpeg">
             Pink Solar Jerk
           </button>
           <a href="https://buy.stripe.com/aFa14m0Ut2cnbLM7hKcbC02"
-            ><button style="background-color: red">Buy Pink Solar Jerk</button></a
+            ><button style="background-color: red">
+              Buy Pink Solar Jerk
+            </button></a
           >
 
           <button class="scroll-top" data-image="images\jerk\whispershad.jpeg">
             Whisper Shad Jerk
           </button>
           <a href="https://buy.stripe.com/bJefZg32BbMX4jk59CcbC03"
-            ><button style="background-color: red">Buy Whisper Shad Jerk</button></a
+            ><button style="background-color: red">
+              Buy Whisper Shad Jerk
+            </button></a
           >
 
-          <button
-            class="scroll-top"
-            data-image="images\jerk\bluebullet.jpeg"
-          >
+          <button class="scroll-top" data-image="images\jerk\bluebullet.jpeg">
             Blue Bullet Jerk
           </button>
           <a href="https://buy.stripe.com/bJe8wOdHf2cn5no8lOcbC04"
@@ -77,15 +82,12 @@
             </button></a
           >
 
-
           <button class="scroll-top" data-image="images\jerk\redhead.jpeg">
             Red Head Jerk
           </button>
           <a href="https://buy.stripe.com/fZueVc0Ut5ozdTU59CcbC05"
             ><button style="background-color: red">Buy Red Head Jerk</button></a
           >
-
-
         </div>
       </div>
 
@@ -116,6 +118,7 @@
 
     <script src="js/script.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/addtocart.js"></script>
 
     <script>
       document.querySelectorAll(".scroll-top").forEach((button) => {

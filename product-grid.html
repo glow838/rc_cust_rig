@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Products</title>
+<style>
+  body{background:#060606;color:#fff;font-family:Inter,Arial;padding:22px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:12px auto}
+  .card{background:#121212;padding:12px;border-radius:10px;display:flex;flex-direction:column;gap:8px}
+  .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+  .card h3{margin:0;font-size:16px}
+  .card .price{color:#9aa0a6}
+  .card button{margin-top:auto;padding:10px;border-radius:8px;border:0;background:#0a84ff;color:#fff;cursor:pointer}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1 style="max-width:1200px;margin:0 auto 12px">Our Services</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+const products = [
+  {name:'Premium Haircut', price:'price_1AAAAAA', amount:2500, img:'https://via.placeholder.com/600x400?text=Premium+Haircut'},
+  {name:'Beard Trim', price:'price_1BBBBBB', amount:1500, img:'https://via.placeholder.com/600x400?text=Beard+Trim'},
+  {name:'Shampoo & Style', price:'price_1CCCCCC', amount:1800, img:'https://via.placeholder.com/600x400?text=Shampoo+%26+Style'}
+];
+const grid = document.getElementById('grid');
+products.forEach(p=>{
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.innerHTML = `
+    <img src="${p.img}" alt="${p.name}">
+    <h3>${p.name}</h3>
+    <div class="price">$${(p.amount/100).toFixed(2)}</div>
+    <button onclick="addToCart({name:'${p.name}',price:'${p.price}',amount:${p.amount}})">Add to Cart</button>
+  `;
+  grid.appendChild(el);
+});
+function addToCart(item){
+  // reuse the global addToCart from cart.html if present, or fallback to localStorage
+  if (typeof window.addToCart === 'function') return window.addToCart(item);
+  let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+  const existing = cart.find(i=>i.price===item.price);
+  if(existing) existing.quantity++;
+  else cart.push({...item,quantity:1});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(item.name + ' added to cart');
+}
+</script>
+</body>
+</html>
